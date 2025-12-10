@@ -1,0 +1,111 @@
+---
+title: Welcome to Peasy Documentation
+description: An overview of Peasy, a platform for organizing and managing project documentation spaces.
+---
+
+## What is Peasy?
+
+Peasy provides a centralized space to organize and manage all your project documentation. You create dedicated documentation sites for APIs, SDKs, user guides, and internal wikis. Customize themes, add interactive components, and collaborate with your team in real-time.
+
+Peasy handles hosting, search, analytics, and versioning, so you focus on content. Start with Markdown or MDX files and build professional docs without frontend expertise.
+
+## Key Benefits and Features
+
+Peasy streamlines documentation workflows with powerful features.
+
+<Columns cols={3}>
+  <Card title="Interactive Components" icon="zap" href="/docs/components">
+    Use `<Steps>`, `<Tabs>`, `<Cards>`, and more to create engaging guides.
+  </Card>
+  <Card title="Real-time Collaboration" icon="users" href="/docs/collaboration">
+    Edit docs simultaneously with teammates and see changes instantly.
+  </Card>
+  <Card title="Custom Themes" icon="palette" href="/docs/themes">
+    Apply your brand colors like `#3B82F6` and custom layouts.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+  Over 10,000 teams use Peasy to reduce documentation churn by 40%.
+</Callout>
+
+## Get Oriented with the Dashboard
+
+Navigate the dashboard quickly to manage your docs.
+
+<Steps>
+  <Step title="Access Dashboard" icon="monitor">
+    Log in at `https://app.peasy.dev` and select your project.
+  </Step>
+  <Step title="Browse Pages" icon="book-open">
+    Use the sidebar to view pages, components, and analytics.
+  </Step>
+  <Step title="Edit Content" icon="edit-3">
+    Click any page to enter the visual editor or switch to MDX mode.
+  </Step>
+</Steps>
+
+## Platform Setup Examples
+
+Install Peasy CLI to sync local changes.
+
+<CodeGroup tabs="npm,yarn,pnpm">
+  ```bash
+  npm install -g @peasy/cli
+  peasy init my-docs
+  ```
+  ```bash
+  yarn global add @peasy/cli
+  yarn peasy init my-docs
+  ```
+  ```bash
+  pnpm add -g @peasy/cli
+  pnpm peasy init my-docs
+  ```
+</CodeGroup>
+
+## Brand Guidelines and Customization
+
+Follow these guidelines to match Peasy's brand.
+
+<Tabs>
+  <Tab title="Primary Color" icon="circle">
+    Use `#3B82F6` for buttons and accents. Avoid shades darker than `#1E40AF`.
+  </Tab>
+  <Tab title="Typography" icon="type">
+    Headings use Inter font at 24px (H2), 20px (H3). Body text at 16px.
+  </Tab>
+  <Tab title="Config Example" icon="code">
+    
+```javascript
+// peasy.config.js
+module.exports = {
+  theme: {
+    colors: {
+      primary: '#3B82F6',
+    },
+    fonts: {
+      heading: 'Inter, sans-serif',
+    },
+  },
+};
+```
+    
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Custom CSS" default-open="false">
+  Override styles with custom CSS in your config.
+
+```css
+:root {
+  --peasy-primary: #3B82F6;
+}
+
+.button {
+  background: var(--peasy-primary);
+}
+```
+</Expandable>
+
+Start building your docs today—import existing Markdown or create from scratch. Peasy scales with your projects.

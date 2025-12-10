@@ -1,0 +1,140 @@
+---
+title: Configuring Your Peasy Space
+description: How to customize settings, integrations, and permissions in your documentation platform.
+---
+
+## Space Settings and Themes
+
+Customize your Peasy space to match your brand and workflow. Access settings from the admin dashboard to adjust themes, layouts, and default behaviors.
+
+<Columns cols={3}>
+  <Card title="Themes" icon="palette" href="/docs/themes">
+    Apply custom colors and fonts.
+  </Card>
+  <Card title="Layouts" icon="layout" href="/docs/layouts">
+    Choose grid or sidebar navigation.
+  </Card>
+  <Card title="Branding" icon="image" href="/docs/branding">
+    Upload logos and set primary color like `#3B82F6`.
+  </Card>
+</Columns>
+
+<Steps>
+  <Step title="Update Theme" icon="settings">
+    Navigate to **Space Settings > Themes**.
+
+    Select a preset or enter custom values:
+
+    ```json
+    {
+      "primaryColor": "#3B82F6",
+      "fontFamily": "Inter, sans-serif",
+      "sidebarWidth": "280px"
+    }
+    ```
+
+    Click **Save Changes** to apply instantly.
+  </Step>
+  <Step title="Preview and Publish" icon="eye">
+    Use the live preview to test your theme across devices.
+
+    Publish when satisfied.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Test themes on mobile first. Peasy automatically optimizes for responsive design.
+</Callout>
+
+## User Roles and Permissions
+
+Manage access levels to control who edits, views, or administers your documentation.
+
+<Tabs>
+  <Tab title="Admin" icon="shield">
+    Full access: Edit content, manage users, configure integrations.
+
+    Assign via **Users > Roles**.
+  </Tab>
+  <Tab title="Editor" icon="edit-3">
+    Content creation and updates only. No admin settings.
+
+    Ideal for writers and contributors.
+  </Tab>
+  <Tab title="Viewer" icon="eye">
+    Read-only access. Perfect for external stakeholders.
+  </Tab>
+</Tabs>
+
+<Callout kind="alert">
+  Review permissions before inviting external users. Misconfigured roles expose sensitive content.
+</Callout>
+
+## Integrating with External Tools
+
+Connect Peasy to GitHub, Slack, or analytics providers for seamless workflows.
+
+### GitHub Sync
+
+<CodeGroup tabs="npm,yarn">
+  ```bash
+  npm install peasy-github-sync
+  peasy sync --repo=your-org/docs --branch=main --token={GITHUB_TOKEN}
+  ```
+  ```bash
+  yarn add peasy-github-sync
+  peasy sync --repo=your-org/docs --branch=main --token={GITHUB_TOKEN}
+  ```
+</CodeGroup>
+
+### Slack Notifications
+
+Set up webhooks in **Integrations > Slack**:
+
+```
+https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+## Exporting and Importing Content
+
+<ExpandableGroup>
+  <Expandable title="Export to Markdown or PDF" default-open="true">
+    Export entire spaces or pages.
+
+    1. Go to **Space > Export**.
+    2. Select format: Markdown ZIP or PDF.
+    3. Download includes frontmatter and images.
+
+    Use for backups or migrations.
+  </Expandable>
+  <Expandable title="Import from ZIP or Git">
+    Drag-and-drop ZIP files or link Git repos.
+
+    ```bash
+    peasy import --source=docs-repo.zip --target=/imported-space
+    ```
+
+    Supports MDX, YAML frontmatter, and assets.
+  </Expandable>
+</ExpandableGroup>
+
+## Advanced Permissions
+
+Fine-tune with custom roles using JSON policies:
+
+````json
+{
+  "permissions": {
+    "read": ["public"],
+    "write": ["editor", "admin"],
+    "delete": ["admin"]
+  },
+  "integrations": {
+    "github": { "enabled": true, "scopes": ["repo", "workflow"] }
+  }
+}
+````
+
+<Callout kind="success">
+  Regularly audit logs in **Admin > Audit Trail** to track changes.
+</Callout>

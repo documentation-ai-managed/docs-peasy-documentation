@@ -1,0 +1,122 @@
+---
+title: Changelog
+description: Version history and updates for Peasy Documentation platform.
+---
+
+## Recent Updates
+
+Stay informed about the latest improvements in Peasy Documentation. You access new features, bug fixes, and breaking changes through these release notes. Review updates to keep your documentation workflows optimized.
+
+<Update label="2024-11-15" description="v1.3.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Added real-time collaboration for shared editing sessions
+- Introduced custom theme support with your brand colors like `#3B82F6`
+- Integrated search indexing for faster document discovery
+
+## Improvements
+
+- Enhanced performance for pages with heavy MDX components
+- Optimized mobile rendering for better responsiveness
+
+</Update>
+
+<Update label="2024-10-20" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Live preview mode for MDX editing with syntax validation
+- Embeddable widgets for dynamic content like charts and forms
+
+## Bug Fixes
+
+- Resolved parsing errors with nested code blocks using 4 backticks
+- Fixed heading hierarchy issues that skipped from H2 to H4
+- Corrected special character escaping for `{` and `<` in prose
+
+</Update>
+
+<Update label="2024-09-15" description="v1.1.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Updated JSX attribute syntax to require double quotes exclusively
+- Mermaid diagrams now require code block syntax only—no `<Mermaid>` component
+
+## New Features
+
+- Component sidebar with live previews for Callout, Steps, and Cards
+- Auto-generate frontmatter validation for titles and descriptions
+
+## Bug Fixes
+
+- Patched self-closing tag errors in container components like `<Tabs>`
+
+</Update>
+
+## Upgrade Instructions
+
+Follow these steps to upgrade Peasy Documentation to the latest version.
+
+<Steps>
+  <Step title="Check Current Version" icon="package">
+    Run the version check command in your project root.
+    
+    <CodeGroup tabs="npm,yarn">
+    ````bash
+    npm list peasy-docs
+    ````
+    ````bash
+    yarn list peasy-docs
+    ````
+    </CodeGroup>
+  </Step>
+  <Step title="Update Package" icon="download">
+    Install the latest release.
+    
+    <Tabs>
+      <Tab title="npm" icon="npm">
+      ````bash
+      npm install peasy-docs@latest
+      ````
+      </Tab>
+      <Tab title="yarn" icon="yarn">
+      ````bash
+      yarn add peasy-docs@latest
+      ````
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Rebuild Site" icon="rocket">
+    Clear cache and rebuild your documentation site.
+    
+    ````bash
+    npm run build
+    ````
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+Subscribe to release notifications via GitHub or our Discord server to never miss an update.
+</Callout>
+
+## Quick Actions
+
+<Columns cols={3}>
+  <Card title="Report a Bug" icon="bug" href="https://github.com/peasy-docs/issues/new?template=bug_report.md" target="_blank">
+    Found an issue? Submit detailed steps to reproduce.
+  </Card>
+  <Card title="Request Feature" icon="sparkles" href="https://github.com/peasy-docs/issues/new?template=feature_request.md" target="_blank">
+    Suggest new components or enhancements.
+  </Card>
+  <Card title="View Full History" icon="book-open" href="/docs/full-changelog">
+    Explore all past releases and detailed diffs.
+  </Card>
+</Columns>
+
+<ExpandableGroup>
+  <Expandable title="How to Contribute to Changelog" default-open="false">
+    You contribute by following our release template. Fork the repo, update the MDX, and submit a pull request.
+  </Expandable>
+</ExpandableGroup>

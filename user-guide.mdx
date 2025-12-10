@@ -1,0 +1,153 @@
+---
+title: User Guide: Managing Documentation
+description: Comprehensive guide on how to create, edit, and organize documentation within Peasy.
+---
+
+## Overview
+
+Peasy provides a complete workspace for managing your project's documentation. You create, edit, and organize MDX pages using the web editor or CLI tools. Collaborate with your team through real-time edits and version history. This guide covers essential workflows to get you started.
+
+<Columns cols={3}>
+  <Card title="Create Pages" icon="file-plus" href="#creating-pages">
+    Build new documentation quickly.
+  </Card>
+  <Card title="Organize Folders" icon="folder" href="#organizing-folders">
+    Structure your content logically.
+  </Card>
+  <Card title="Collaborate" icon="users" href="#collaborating">
+    Work with team members seamlessly.
+  </Card>
+</Columns>
+
+## Creating Pages
+
+Start by creating new documentation pages. Use the dashboard or CLI for flexibility.
+
+<Steps>
+  <Step title="Access Dashboard" icon="layout">
+    Log in to your Peasy workspace and navigate to the `docs` folder.
+  </Step>
+  <Step title="Create New Page" icon="plus">
+    Click the `New Page` button. Enter a filename like `user-guide.mdx`.
+  </Step>
+  <Step title="Add Frontmatter" icon="edit-3">
+    Insert YAML frontmatter at the top:
+
+````mdx
+```yaml
+---
+title: Your Page Title
+description: Brief summary.
+---
+```
+````
+
+  </Step>
+  <Step title="Publish" icon="upload">
+    Save and publish to make it live.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use descriptive filenames and titles for better navigation.
+</Callout>
+
+## Editing Pages
+
+Edit content directly in the visual editor or via CLI. Switch between modes based on your needs.
+
+<Tabs>
+  <Tab title="Web Editor" icon="edit">
+    Open any page and use the split-view editor. Markdown and JSX components render live.
+
+    **Key features:**
+    - Syntax highlighting
+    - Preview pane
+    - Component autocomplete
+  </Tab>
+  <Tab title="CLI Editor" icon="terminal">
+    Edit files locally and sync.
+
+    <CodeGroup tabs="Bash,NPM">
+```bash
+peasy edit docs/user-guide.mdx
+```
+
+```bash
+npx peasy@latest edit docs/user-guide.mdx
+```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Organizing Content with Folders
+
+Structure your documentation hierarchically. Folders create automatic navigation menus.
+
+| Folder Path          | Purpose                          | Example Pages                  |
+|----------------------|----------------------------------|--------------------------------|
+| `docs/intro/`        | Onboarding guides                | `quickstart.mdx`, `overview.mdx` |
+| `docs/api/`          | API references                   | `endpoints.mdx`, `auth.mdx`    |
+| `docs/guides/`       | Advanced tutorials               | `deployment.mdx`, `scaling.mdx`|
+
+<Callout kind="info">
+  Peasy auto-generates sidebar navigation from your folder structure.
+</Callout>
+
+To create a folder via CLI:
+
+```bash
+peasy mkdir docs/guides/advanced
+peasy create docs/guides/advanced/custom.mdx
+```
+
+## Collaborating with Team Members
+
+Invite teammates and manage permissions.
+
+<ExpandableGroup>
+  <Expandable title="Invite Users" default-open="true">
+    1. Go to Workspace Settings > Members.
+    2. Enter email addresses.
+    3. Assign roles: Admin, Editor, Viewer.
+
+    Real-time cursors show who is editing.
+  </Expandable>
+  <Expandable title="Review Changes">
+    Use the activity feed to track edits. Comment inline on pages.
+  </Expandable>
+</ExpandableGroup>
+
+## Version Control Basics
+
+Peasy integrates with Git for backups and history.
+
+<CodeGroup tabs="Clone,Pull,Commit">
+```bash
+git clone https://github.com/your-org/peasy-docs.git
+cd peasy-docs
+```
+
+```bash
+git pull origin main
+peasy sync
+```
+
+```bash
+git add docs/
+git commit -m "Update user guide"
+git push origin main
+```
+</CodeGroup>
+
+<Callout kind="success">
+  Enable Git sync in settings for automatic backups.
+</Callout>
+
+Track changes with:
+
+```bash
+peasy history docs/user-guide.mdx
+```
+
+This workflow ensures your documentation stays organized, up-to-date, and collaborative. Explore advanced features like custom themes in the settings panel.
